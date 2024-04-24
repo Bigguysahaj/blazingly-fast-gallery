@@ -15,6 +15,7 @@ T3 Gallery - best practices
 - [ ] Analytics (posthog)
 - [ ] Ratelimiting (upstash)
 
+
 # We are using T3 Here
 
 So if you wish to use it too, check out the documentation below.
