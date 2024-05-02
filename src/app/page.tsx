@@ -1,6 +1,10 @@
  import Link from "next/link";
 import { db } from "~/server/db";
 
+// tip 2 : once a page is deployed on vercel, it caches on the server and hence it doesn't update dynamically
+// to force it to update, you can use the dynamic variable below
+export const dynamic = "force-dynamic";
+
 const fakeUrls = [
   "https://utfs.io/f/fb10db4d-e943-423f-8d17-1e332c6a254d-dun1mq.webp",
   "https://utfs.io/f/b6f901ed-9f1d-4408-ae6b-36719ab61175-itsrey.png",
@@ -15,7 +19,7 @@ const fakeImages = fakeUrls.map((url, index) => ({
 export default async function HomePage() {
   
   const posts = await db.query.posts.findMany();
-  // this component is running on a server and not on client side
+  // tip 1: this component is running on a server and not on client side
   // previously in react land, your component ran both on server and client side, 
   // but now in next.js, it only runs on server, which means you can 
   // do db call and don't have to worry about it
