@@ -6,8 +6,8 @@ T3 Gallery - best practices
 - [x] Make it deploy (vercel)
 - [x] Scaffold basic ui with mock data
 - [x] Tidy up build process (cool thing)
-- [ ] Set up a database (vercel postgres)
-- [ ] Attach database to UI
+- [x] Set up a database (vercel postgres)
+- [x] Attach database to UI and building actual schema for db
 - [ ] Add authentication (w/ clerk)
 - [ ] Add image upload
 - [ ] Error management (w/ sentry)

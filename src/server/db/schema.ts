@@ -20,11 +20,12 @@ export const createTable = pgTableCreator((name) => `t3-gallery_${name}`);
 
 // linked through db::push in package.json, not using migration because it's not really necessary 
 
-export const posts = createTable(
-  "post",
+export const images = createTable(
+  "image",
   {
     id: serial("id").primaryKey(),
-    name: varchar("name", { length: 256 }),
+    name: varchar("name", { length: 256 }).notNull(),
+    url: varchar("url", { length: 1024 }).notNull(),
     createdAt: timestamp("created_at")
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
