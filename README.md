@@ -8,7 +8,7 @@ T3 Gallery - best practices
 - [x] Tidy up build process (cool thing)
 - [x] Set up a database (vercel postgres)
 - [x] Attach database to UI and building actual schema for db
-- [ ] Add authentication (w/ clerk)
+- [x] Add authentication (w/ clerk)
 - [ ] Add image upload
 - [ ] Error management (w/ sentry)
 - [ ] Routing/image page (parrellel routes)
