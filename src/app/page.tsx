@@ -1,12 +1,13 @@
- import Link from "next/link";
+ import { SignedIn, SignedOut } from "@clerk/nextjs";
+import Link from "next/link";
 import { db } from "~/server/db";
 
 // tip 2 : once a page is deployed on vercel, it caches on the server and hence it doesn't update dynamically
 // to force it to update, you can use the dynamic variable below
 export const dynamic = "force-dynamic";
 
-export default async function HomePage() {
-  
+const Images = async() => {
+   
   // by default the order of images would be from the oldest to newest
   const images = await db.query.images.findMany({
     // to reverse the order
@@ -19,20 +20,30 @@ export default async function HomePage() {
   // do db call and don't have to worry about it
   // that's why this console log --> console.log(posts); won't work
 
+  return(
+    <div className = "flex flex-wrap gap-4">
+      {/* don't use index as a key */}
+      {/* {[...images, ...images, ...images, ...images].map((image, index) => (
+        //cool trick to add fake mock datas */}
+      {[...images, ...images, ...images, ...images].map((image, index) => (
+        <div key={image.id + "-" + index} className="w-52">
+          <img src = {image.url} alt="image" className="w-full h-52 object-cover"/>
+          <div>{image.name}</div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+export default async function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-r from-rose-100 to-teal-100 text-gray text-xl font-bolder">
-      <span className= "p-4 font-bold">Which do you prefer</span>
-      <div className = "flex flex-wrap gap-4">
-        {/* don't use index as a key */}
-        {/* {[...images, ...images, ...images, ...images].map((image, index) => (
-          //cool trick to add fake mock datas */}
-        {[...images, ...images, ...images, ...images].map((image, index) => (
-          <div key={image.id + "-" + index} className="w-52">
-            <img src = {image.url} alt="image" className="w-full h-52 object-cover"/>
-            <div>{image.name}</div>
-          </div>
-        ))}
-      </div>
+    <main className="">
+      <SignedOut>
+        <div className="h-full w-full text-2l text-center">Please Sign up above</div>
+      </SignedOut>
+      <SignedIn>
+        <Images/>
+      </SignedIn>
     </main>
   );
 }

@@ -10,6 +10,8 @@ T3 Gallery - best practices
 - [x] Attach database to UI and building actual schema for db
 - [x] Add authentication (w/ clerk)
 - [ ] Add image upload
+- [ ] "taint" server only
+- [ ] use Nexjs Image component
 - [ ] Error management (w/ sentry)
 - [ ] Routing/image page (parrellel routes)
 - [ ] Delete button (w/ Server Actions)
