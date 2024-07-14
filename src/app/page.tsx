@@ -1,4 +1,4 @@
- import { SignedIn, SignedOut } from "@clerk/nextjs";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 import Link from "next/link";
 import { db } from "~/server/db";
 
@@ -21,14 +21,14 @@ const Images = async() => {
   // that's why this console log --> console.log(posts); won't work
 
   return(
-    <div className = "flex flex-wrap gap-4">
+    <div className = "flex flex-wrap gap-4 p-4">
       {/* don't use index as a key */}
       {/* {[...images, ...images, ...images, ...images].map((image, index) => (
         //cool trick to add fake mock datas */}
-      {[...images, ...images, ...images, ...images].map((image, index) => (
-        <div key={image.id + "-" + index} className="w-52">
-          <img src = {image.url} alt="image" className="w-full h-52 object-cover"/>
-          <div>{image.name}</div>
+      {images.map((image) => (
+        <div key={image.id} className="flex w-52 flex-col">
+          <img src={image.url} className="aspect-square object-cover rounded-lg"/>
+          <div className="py-4 m-4 rounded-lg bg-slate-200">{image.name}</div>
         </div>
       ))}
     </div>

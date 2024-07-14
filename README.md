@@ -9,7 +9,7 @@ T3 Gallery - best practices
 - [x] Set up a database (vercel postgres)
 - [x] Attach database to UI and building actual schema for db
 - [x] Add authentication (w/ clerk)
-- [ ] Add image upload
+- [x] Add image upload
 - [ ] "taint" server only
 - [ ] use Nexjs Image component
 - [ ] Error management (w/ sentry)
